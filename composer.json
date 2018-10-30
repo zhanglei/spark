@@ -1,0 +1,55 @@
+{
+    "name": "spark-php/spark",
+    "description": "An effective,fast,stable Framework for PHP.",
+    "keywords": [
+        "php",
+        "framework",
+        "effective",
+        "fast",
+        "spark"
+    ],
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Panda Wu",
+            "email": "itwujunze@gamil.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "ext-json": "*",
+        "spark-php/framework": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.4",
+        "codedungeon/phpunit-result-printer": "^0.23.3",
+        "friendsofphp/php-cs-fixer": "^2.13",
+        "wujunze/declare-strict-easy": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Spark\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Spark\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": [
+            "./vendor/bin/phpunit -c phpunit.xml"
+        ],
+        "fix" : [
+            "./vendor/bin/php-cs-fixer fix $1"
+        ],
+        "strict" : [
+            "./vendor/bin/declare_strict_types add ./src ./tests --exclude=./vendor"
+        ],
+        "serve" : [
+            "php -t public -S 0:${WEB_PORT:-8000} public/index.php"
+       ]
+    }
+
+}
