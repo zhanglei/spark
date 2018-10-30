@@ -1,34 +1,28 @@
 <?php
 
-ini_set('always_populate_raw_post_data', '-1');
-ini_set('date.timezone', 'Asia/Shanghai');
+$uri = urldecode(
+    parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)
+);
 
-if (PHP_SAPI == 'cli-server') {
-    // To help the built-in PHP dev server, check if the request was actually for
-    // something which should probably be served as a static file
-    $url = parse_url($_SERVER['REQUEST_URI']);
-    $file = __DIR__ . $url['path'];
-    if (is_file($file)) {
-        return false;
-    }
-}
-
-$extensions = array('js', 'map');
-$path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
-$ext = pathinfo($path, PATHINFO_EXTENSION);
-if (in_array($ext, $extensions)) {
+// This file allows us to emulate Apache's "mod_rewrite" functionality from the
+// built-in PHP web server. This provides a convenient way to test a Laravel
+// application without having installed a "real" web server software here.
+if ($uri !== '/' && file_exists($file = __DIR__.'/'.$uri)) {
     return false;
 }
+date_default_timezone_set('Asia/Shanghai');
 
-require __DIR__ . '/../vendor/autoload.php';
+define('APP_PATH', realpath(__DIR__.'/..'));
 
-$bootstrap = require __DIR__ . '/../bootstrap/bootstrap.php';
-$routes = require __DIR__ . '/../routes/web.php';
+require APP_PATH.'/vendor/autoload.php';
+
+$bootstrap = require APP_PATH.'/bootstrap/bootstrap.php';
+$routes = require APP_PATH.'/routes/web.php';
 
 $app = new \Spark\Framework\Application($bootstrap);
-$app->loadRouterConfig($routes);
 
 // Register routes
+$app->loadRouterConfig($routes);
 
 // Run app
 $app->run();
