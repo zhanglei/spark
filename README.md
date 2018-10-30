@@ -9,15 +9,25 @@
 
 An effective,fast,stable Framework for PHP
 
-## Installation
+## Basic use
 
 Installation with composer
 
 ```shell
-composer require "spark-php/framework"
+composer create-project spark-php/spark
 ```
 
+Run development server
 
+```shell
+composer serve
+```
+
+Enjoy SparkPHP framework
+
+```shell
+curl  http://0.0.0.0:8000/
+```
 
 ## Roadmap
 
@@ -28,6 +38,7 @@ composer require "spark-php/framework"
 - [x] Http
 - [x] Dispatcher
 - [x] Application
+- [x] dev-server
 - [ ] Db
 - [ ] Env
 - [ ] Config
@@ -40,7 +51,6 @@ composer require "spark-php/framework"
 
 ### component
 
-- [ ] dev-server
 - [ ] swoole-server
 - [ ] rpc
 - [ ] rpc-client
