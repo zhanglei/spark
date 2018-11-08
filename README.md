@@ -39,14 +39,14 @@ curl  http://0.0.0.0:8000/
 - [x] Dispatcher
 - [x] Application
 - [x] dev-server
-- [ ] Db
-- [ ] Env
-- [ ] Config
-- [ ] Command
+- [x] Env
+- [x] Config
+- [x] Command
 - [ ] Event
 - [ ] Log
 - [ ] Cache
 - [ ] JobQueue
+- [ ] Db
 
 
 ### component
