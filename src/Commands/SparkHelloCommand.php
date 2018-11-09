@@ -35,6 +35,7 @@ class SparkHelloCommand extends BaseCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $output->writeln(getenv('APP_NAME'));
         $output->write($this->commonService->spark(), true);
     }
 
