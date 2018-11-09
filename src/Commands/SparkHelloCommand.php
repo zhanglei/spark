@@ -1,23 +1,23 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: wujunze
- * Date: 2018/11/5
- * Time: 6:49 PM
+ * This file is part of Spark Framework.
+ *
+ * @link     https://github.com/spark-php/framework
+ * @document https://github.com/spark-php/framework
+ * @contact  itwujunze@gmail.com
+ * @license  https://github.com/spark-php/framework
  */
 
 namespace Spark\Commands;
 
-
 use Spark\Framework\Command\BaseCommand;
 use Spark\Framework\Interfaces\Di\ContainerInterface;
-use Spark\Modules\Common\CommonService;
+use Spark\Modules\Common\Services\CommonService;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class SparkHelloCommand extends BaseCommand
 {
-
     private $commonService;
 
     public function __construct(ContainerInterface $container, CommonService $commonService)
@@ -38,6 +38,4 @@ class SparkHelloCommand extends BaseCommand
         $output->writeln(getenv('APP_NAME'));
         $output->write($this->commonService->spark(), true);
     }
-
-
 }

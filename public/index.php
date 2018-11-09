@@ -17,7 +17,7 @@ define('APP_PATH', realpath(__DIR__.'/..'));
 require APP_PATH.'/vendor/autoload.php';
 
 if (file_exists(APP_PATH.'/.env')) {
-    (new \Dotenv\Dotenv(__DIR__))->load();
+    (new \Dotenv\Dotenv(APP_PATH))->load();
 }
 
 $bootstrap = require APP_PATH.'/bootstrap/bootstrap.php';
