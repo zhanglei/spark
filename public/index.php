@@ -12,7 +12,7 @@ if ($uri !== '/' && file_exists($file = __DIR__.'/'.$uri)) {
 }
 date_default_timezone_set('Asia/Shanghai');
 
-define('APP_PATH', realpath(__DIR__.'/..'));
+defined('APP_PATH') || define('APP_PATH', realpath(__DIR__.'/..'));
 
 require APP_PATH.'/vendor/autoload.php';
 
@@ -26,7 +26,7 @@ $routes = require APP_PATH.'/routes/web.php';
 $app = new \Spark\Framework\Application($bootstrap);
 
 // Register routes
-$app->loadRouterConfig($routes);
-
-// Run app
-$app->run();
+$app->loadConfig(APP_PATH.'/config/')
+    ->bootstrap()
+    ->loadRouterConfig($routes)
+    ->run();
