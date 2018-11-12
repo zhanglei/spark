@@ -54,6 +54,12 @@
         "serve" : [
             "php -t public -S 0:${WEB_PORT:-8000} public/index.php"
        ]
-    }
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/spark-php/framework.git"
+        }
+    ]
 
 }

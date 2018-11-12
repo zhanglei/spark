@@ -3,7 +3,7 @@
 return [
     'commands' => [
         \Spark\Commands\SparkHelloCommand::class,
-        \Spark\Commands\WebServeCommand::class,
+        \Spark\Framework\Wm\WebServeCommand::class,
         \Spark\Framework\Swoole\SwooleServerCommand::class,
     ],
     'wm' => [
