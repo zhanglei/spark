@@ -51,7 +51,8 @@ curl  http://0.0.0.0:8000/
 
 ### component
 
-- [ ] swoole-server
+- [x] swoole-web-server
+- [x] php-web-server
 - [ ] rpc
 - [ ] rpc-client
 - [ ] rpc-server

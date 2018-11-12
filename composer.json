@@ -20,7 +20,6 @@
         "php": "^7.1",
         "ext-json": "*",
         "spark-php/framework": "dev-feature",
-        "symfony/console": "^4.1",
         "vlucas/phpdotenv": "^2.5"
     },
     "require-dev": {
